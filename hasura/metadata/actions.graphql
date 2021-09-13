@@ -6,5 +6,7 @@ type Query {
 
 type TailOutput {
   json_id: Int!
+  title: String!
+  description: String!
 }
 

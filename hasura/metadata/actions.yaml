@@ -1,0 +1,12 @@
+actions:
+- name: getTailId
+  definition:
+    kind: ""
+    handler: http://host.docker.internal:3000/api/tail
+    # handler: http://localhost:3000/api/tail
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+  - name: TailOutput
+  scalars: []

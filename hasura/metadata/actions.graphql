@@ -1,0 +1,10 @@
+type Query {
+  getTailId(
+    tail: String!
+  ): TailOutput
+}
+
+type TailOutput {
+  json_id: Int!
+}
+

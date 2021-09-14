@@ -55,6 +55,10 @@ const Home: NextPage<Props> = (props: Props) => {
 
 export default Home;
 
+interface QueryVariables {
+  tail: string;
+}
+
 const QUERY = gql`
   query ($tail: String!) {
     getTailId(tail: $tail) {
@@ -66,7 +70,7 @@ const QUERY = gql`
 `;
 
 const fetchTail = async (tail: string): Promise<QueryResult> => {
-  const {data} = await apolloClient.query<QueryResult>({
+  const {data} = await apolloClient.query<QueryResult, QueryVariables>({
     query: QUERY,
     variables: {
       tail,

@@ -23,7 +23,8 @@ const fetchTail = async (tail: string) => {
     `,
     variables: {
       tail
-    }
+    },
+    fetchPolicy: 'network-only'
   });
   return data;
 }

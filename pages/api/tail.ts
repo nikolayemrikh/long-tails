@@ -4,12 +4,14 @@ import {apolloClient} from '../../apollo-client';
 import path from 'path';
 import {readFile} from 'fs/promises';
 
+/** Item inside of tails.json */
 export interface TailJsonData {
   id: number;
   title: string;
   description: string;
 }
 
+/** Data returned from query to hasura for json_id in long_tails */
 interface TailRequestData {
   input: {
     tail: string;
@@ -40,6 +42,9 @@ const queryJsonIds = gql`
   }
 `;
 
+/**
+ * Read file tails.json, parse it, find needed item and return
+ */
 const getTailData = async (json_id: number): Promise<TailJsonData | undefined> => {
   const json = await readFile(path.join(process.cwd(), 'tails.json'), 'utf-8');
   const titles = JSON.parse(json) as TailJsonData[];
@@ -47,6 +52,10 @@ const getTailData = async (json_id: number): Promise<TailJsonData | undefined> =
   return titles.find(({id}) => id === json_id);
 };
 
+/**
+ * Handler for action getTailId in hasura
+ * Should query json_id from hasura, read tails.json, find item with same id and respond with its data
+ */
 const handler: NextApiHandler<ResponseData> = async (req, res) => {
   const {tail} = (req.body as TailRequestData).input;
 

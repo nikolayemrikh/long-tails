@@ -74,8 +74,6 @@ export default async function handler(
 
   const { title, description } = tailData;
 
-  console.log(title);
-  
   res.status(200).json({
     json_id,
     title,

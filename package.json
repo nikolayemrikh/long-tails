@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "hasura:init": "cd hasura && hasura metadata apply && hasura migrate apply && cd .."
   },
   "dependencies": {
     "@apollo/client": "^3.4.11",

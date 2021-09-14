@@ -6,8 +6,12 @@ import { gql } from '@apollo/client';
 import { apolloClient } from '../apollo-client';
 import { ResponseData } from './api/tail';
 
+interface GetTailData {
+  getTailId: ResponseData
+}
+
 const fetchTail = async (tail: string) => {
-  const { data } = await apolloClient.query<ResponseData>({
+  const { data } = await apolloClient.query<GetTailData>({
     query: gql`
       query ($tail: String!) {
         getTailId(tail: $tail) {
@@ -46,13 +50,16 @@ const Home: NextPage<Props> = (props) => {
 export default Home
 
 export const getServerSideProps = async (context: any): Promise<{ props: Props }> => {
+  console.log(context);
+  
+  
   const { tail } = context.params;
-  const { title, description } = await fetchTail(tail)
+  const { title, description } = (await fetchTail(tail)).getTailId;
   
   return {
     props: {
       title,
-      description
+      description,
     }
   }
 }

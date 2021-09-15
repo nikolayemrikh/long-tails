@@ -2,7 +2,8 @@ import type {NextApiHandler} from 'next';
 import {gql} from '@apollo/client';
 import {apolloClient} from '../../apollo-client';
 import path from 'path';
-import {readFile} from 'fs/promises';
+import {promises} from 'fs';
+const {readFile} = promises;
 
 /** Item inside of tails.json */
 export interface TailJsonData {

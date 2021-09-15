@@ -17,6 +17,8 @@ services:
     volumes:
     - ./hasura/metadata:/hasura-metadata
     - ./hasura/migrations:/hasura-migrations
+    extra_hosts:
+    - host.docker.internal:host-gateway
     environment:
       ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
@@ -34,6 +36,8 @@ services:
     restart: always
     ports:
     - "3000:3000"
+    extra_hosts:
+    - host.docker.internal:host-gateway
 volumes:
   db_data:
 

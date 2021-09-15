@@ -21,6 +21,7 @@ Run following command and navigate to 3000 [http://localhost:3000](http://localh
 
 ```bash
 docker-compose -f docker-compose.prod.yml up
+npm run hasura:init
 ```
 
 This will build image for production from app sources, create container and run it along with other needed containers

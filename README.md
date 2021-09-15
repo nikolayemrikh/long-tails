@@ -12,7 +12,6 @@ Once you have just:
 ```bash
 docker-compose -f docker-compose.dev.yml up
 yarn install
-yarn run hasura:init
 yarn dev
 ```
 

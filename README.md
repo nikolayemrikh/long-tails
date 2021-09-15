@@ -18,6 +18,9 @@ yarn dev
 Metadata and migrations will apply automatically in the start of graphql-engine container
 
 Then navigate to [http://localhost:3000/best-hello-world-ever](http://localhost:3000/best-hello-world-ever) in your browser
+
+Edit data in tails.json, reload page or go to another page via link and see changes
+
 ## Production docker build
 
 Run following command and navigate to 3000 [http://localhost:3000/best-hello-world-ever](http://localhost:3000/best-hello-world-ever)

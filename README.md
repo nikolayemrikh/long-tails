@@ -17,10 +17,10 @@ yarn dev
 
 Metadata and migrations will apply automatically in the start of graphql-engine container
 
-Then navigate to [http://localhost:3000](http://localhost:3000) in your browser
+Then navigate to [http://localhost:3000/best-hello-world-ever](http://localhost:3000/best-hello-world-ever) in your browser
 ## Production docker build
 
-Run following command and navigate to 3000 [http://localhost:3000](http://localhost:3000)
+Run following command and navigate to 3000 [http://localhost:3000/best-hello-world-ever](http://localhost:3000/best-hello-world-ever)
 
 ```bash
 docker-compose -f docker-compose.prod.yml up
